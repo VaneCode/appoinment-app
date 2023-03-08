@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore .env
+.env
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -30,5 +33,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# .gitignore
+node_modules/
+
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
