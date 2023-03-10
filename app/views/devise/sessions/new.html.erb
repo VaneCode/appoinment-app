@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="auth-header">
+<div class="flex bg-blue-500 text-white justify-between items-center px-2 sm:px-4 py-2.5">
   <%= link_to root_path, class: "flex items-center justify-center p-2" do %>
       <i class="fa-solid fa-arrow-left fa-2x"></i>
     <% end %>
@@ -8,10 +8,10 @@
 </div>
   <br>
   <div class="flex items-center justify-center p-2">
-  <p class="notice text-solid-green"><%= notice %></p>
+  <p class="notice text-green-500"><%= notice %></p>
   <p class="alert text-red-900"><%= alert %></p>
   </div>
-  <div class="field">
+  <div class="field mb-2">
     <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: 'input-field' %>
   </div>
 
