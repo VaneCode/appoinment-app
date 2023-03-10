@@ -1,14 +1,20 @@
-<div class="w-full">
+<% if user_signed_in? %> 
+ <div class="w-full bg-green-500 flex justify-between items-center"> Welcome <%= current_user.email %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-primary' %> 
+  <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Appointments</h1>
-    <%= link_to 'New appointment', new_appointment_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+     <%= render "form", appointment: @appointment %>
   </div>
 
   <div id="appointments" class="min-w-full">
     <%= render @appointments %>
   </div>
-</div>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
+

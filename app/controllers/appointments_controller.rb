@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = current_user.appointments if user_signed_in?
   end
 
   # GET /appointments/1 or /appointments/1.json

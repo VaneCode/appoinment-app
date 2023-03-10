@@ -5,12 +5,19 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'solid-blue': '#3778c2',
+        'solid-green': '#5fb523',
+        'solid-grey': '#434b54',
       },
     },
   },

@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users # Routes for authentication
   resources :appointments
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  authenticated :user do
-    root to: "home#dashboard", as: :authenticated_root
-  end
+  # root "splashes#index" # Defines the root path route ("/")
 
   # Defines the root path route ("/")
-  root to: "home#index"
+  root "appointments#index"
 end
