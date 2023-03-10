@@ -1,0 +1,53 @@
+<% if user_signed_in? %> 
+<nav class="bg-blue-500 text-white">
+<div class="flex justify-between items-center px-2 sm:px-4 py-2.5">  
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'flex bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center' %> 
+  <h2 class="text-lg">Welcome <%= current_user.email %></h2>
+</div> 
+</nav>
+<br>
+  <div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+   <%= turbo_frame_tag "first_turbo_frame" do %>
+    <div class="flex justify-between items-center w-full my-1">
+      <h1 class="font-bold text-4xl">Appointments</h1>
+      <%= link_to "Make appointment", 
+                  new_appointment_path, 
+                  data: { turbo_frame: dom_id(Appointment.new) },
+                  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>        
+    </div>
+  <% end %>
+
+  <br>
+  <br>
+    <%= turbo_frame_tag Appointment.new %>
+  <br>
+  <br>
+
+  <%= turbo_frame_tag "appointments" do %>
+  <div id="appointments" class="flex-col justify-between items-center w-full my-1">
+   <% if @appointments.count > 0 %>
+    <%= render @appointments %> 
+   <% else %>
+      <h2 class="text-center text-solid-grey">You don't have appointments yet.</h2>
+    <% end %>
+  </div>
+  <% end %>
+
+
+<% else %>
+  <div class="container min-h-[80vh] p-6 flex flex-col flex-1 items-center justify-between">
+  <div class="container flex flex-col flex-grow items-center justify-center gap-12">
+    <h1 class="text-4xl logo text-slate-900">AppoinmentApp</h1>
+  </div>
+  <div class="container flex flex-col">
+     <%= link_to 'Log in', new_user_session_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center' %>
+    <br>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-center' %>
+  </div>
+</div>
+<% end %>
+
