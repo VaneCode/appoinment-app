@@ -78,7 +78,7 @@ This appointment app created with Ruby on Rails, Tailwind, and Hotwire is a mode
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://money-moves.onrender.com)
+- [Live Demo Link](https://appointment-app-qvc1.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,11 +117,9 @@ Install this project with:
 
 ### Usage
 
-This project use Tailwind, so to run the project, execute the following command:
-
 
 ```sh
-  bin/dev
+  rails s
 ```
 
 ### Run tests
