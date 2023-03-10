@@ -22,7 +22,5 @@ RSpec.describe User, type: :model do
       subject.email = nil
       expect(subject).to_not be_valid
     end
-
-    
   end
 end
